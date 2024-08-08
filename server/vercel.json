@@ -1,11 +1,6 @@
 {
   "version": 2,
-  "name": "coding_courses",
-  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "app.js" }],
-  "functions": {
-    "app.js": {
-      "maxDuration": 10
-    }
-  }
+  "name": "newportfolio",
+  "builds": [{ "src": "./server.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/server.js" }]
 }
