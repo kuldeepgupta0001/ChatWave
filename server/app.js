@@ -148,3 +148,4 @@ server.listen(port, () => {
 });
 
 export { envMode, adminSecretKey, userSocketIDs };
+export default server;
