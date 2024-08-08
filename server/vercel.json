@@ -1,6 +1,11 @@
 {
   "version": 2,
-  "name": "chat_app",
+  "name": "coding_courses",
   "builds": [{ "src": "app.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "app.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "app.js" }],
+  "functions": {
+    "app.js": {
+      "maxDuration": 10
+    }
+  }
 }
