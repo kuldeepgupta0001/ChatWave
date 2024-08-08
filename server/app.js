@@ -333,6 +333,8 @@ import userRoute from "./routes/user.js";
 import chatRoute from "./routes/chat.js";
 import adminRoute from "./routes/admin.js";
 
+const app = express();
+
 dotenv.config({
   path: "./.env",
 });
@@ -351,18 +353,16 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
+app.use(express.json());
+app.use(cookieParser());
 app.use(cors(corsOptions));
-const app = express();
+
 const server = createServer(app);
 const io = new Server(server, {
   cors: corsOptions,
 });
 
 app.set("io", io);
-
-app.use(express.json());
-app.use(cookieParser());
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/chat", chatRoute);
