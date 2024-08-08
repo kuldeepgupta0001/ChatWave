@@ -352,6 +352,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+app.use(cors(corsOptions));
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
@@ -362,7 +363,6 @@ app.set("io", io);
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/chat", chatRoute);
